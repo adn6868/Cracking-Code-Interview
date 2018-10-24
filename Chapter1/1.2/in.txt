@@ -1,0 +1,5 @@
+4
+ab
+a\0b
+ab\0cd
+gaaa\0

@@ -1,0 +1,4 @@
+ba
+b\0a
+dc\0ba
+\0aaag
