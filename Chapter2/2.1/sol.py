@@ -35,13 +35,18 @@ def solve(l):
 		else:
 			adict[it.d] = True
 		it = it.n
+	# E.write(str(adict)+'\n')
 	return l.toString()
 
 
 if __name__ == '__main__':
 	q = I.readline()
-	l = myLinkedList(0)
 	for i in range(int(q)):
-		l.addEnd(int(I.readline()))
-	O.write("Input:  L = "+l.toString()+'\n')
-	O.write("Output: L = "+ solve(l)+'\n')
+		n = I.readline()	
+		l = myLinkedList(None)
+		for i in range(int(n)):
+			l.addEnd(int(I.readline().strip('\n')))
+		O.write("====================\n")
+		O.write("Input:  L = "+l.toString()+'\n')
+		O.write("Output: L = "+ solve(l)+'\n')
+
