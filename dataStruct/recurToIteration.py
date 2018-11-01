@@ -51,23 +51,52 @@ class Stack:
 def recurFib(n):
 	if n <= 2:
 		return 1
-	else return recurFib(n-1) + recurFib(n-2)
+	else:
+		return recurFib(n-1) + recurFib(n-2)
+
+def interativeFib(n):
+	'''
+	this have the same complexity with the recursion one
+	but save a lot of space on the call stack of compiler
+	'''
+	s = Stack()
+	s.put(n)
+	ans = 0
+	while not s.empty():
+		cur = s.pop()
+		if cur <= 2:
+			ans+= 1
+		else:
+			s.put(cur-1)
+			s.put(cur-2)
+	return ans
+
+def dynamicFib(n):
+	l = [None]*n
+	i = 2;
+	l[0] = 1
+	l[1] = 1
+
+	while i < n:
+		l[i]= l[i-1] + l[i-2]
+		i +=1
+	return l[-1]
 
 
-def solve(n,E):
+def solve(n):
 	'''
 	I hear any recursion can transform into iteration. by using a stack. let's see how it goes
 	'''
-	aStack = Stack()
-	for i in n:
-		aStack.put(i)
-	E.writeln(aStack.toString())
-	a = aStack.pop()
-	E.writeln("poping " + str(a) +"\n" + aStack.toString())
+	a = str(interativeFib(n))
+	b = str(recurFib(n))
+	c = str(dynamicFib(n))
+	return "using recursion:" + b +'\n'+"using iteration:"+a +'\n'+"using dynamic: " + c
+	# b = str(recurFib(n))
+	# ans = "using recursion:" + b +'\n'+"using iteration:"+a
 
 
 
-	return n
+	return ans
 
 
 
@@ -80,4 +109,4 @@ if __name__ == '__main__':
 
 	query = I.readInt()
 	for i in range(query):
-		O.writeln(solve(I.readToIntList(),E))
+		O.writeln(solve(I.readInt()))
