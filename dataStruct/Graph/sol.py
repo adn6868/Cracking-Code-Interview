@@ -23,6 +23,8 @@ class Input:
 		return list(map(int, self.i.readline().strip('\n').split(splitter)))
 	def readToFltList(self,splitter = " "):
 		return list(map(float, self.i.readline().strip('\n').split(splitter)))
+	# def readChar
+
 
 class Error:
 	def __init__(self):
@@ -31,6 +33,15 @@ class Error:
 		self.e.write(str(aline))
 	def writeln(self, aline):
 		self.e.write(str(aline) + '\n')
+
+def depthFirstSearch(graph,S,D):
+	if S not in graph.keys() or D not in graph.keys():
+		return False
+
+def breathFirstSearch(graph,S,D):
+	if S not in graph.keys() or D not in graph.keys():
+		return False
+	
 
 def solve(n):
 	'''
@@ -45,4 +56,9 @@ if __name__ == '__main__':
 
 	query = I.readInt()
 	for i in range(query):
-		O.writeln(solve(I.readToFltList()))
+		nodeNum = I.readInt()
+		nodeList = I.readToList()
+		graph = {}
+		for node in nodeList:
+			graph[node] = I.readToList()
+		E.writeln(graph)
