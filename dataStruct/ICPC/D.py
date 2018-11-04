@@ -12,7 +12,7 @@ class Input:
 	def __init__( self ):
 		self.i = sys.stdin
 	def readline( self ):
-		return self.i.readline().strip('\n')
+		return self.i.readline()
 	def readInt( self ):
 		return int ( self.i.readline().strip('\n'))
 	def readFlt( self ):
@@ -23,8 +23,6 @@ class Input:
 		return list(map(int, self.i.readline().strip('\n').split(splitter)))
 	def readToFltList(self,splitter = " "):
 		return list(map(float, self.i.readline().strip('\n').split(splitter)))
-	# def readChar
-
 
 class Error:
 	def __init__(self):
@@ -34,41 +32,25 @@ class Error:
 	def writeln(self, aline):
 		self.e.write(str(aline) + '\n')
 
-def depthFirstSearch(graph,S,D):
-	if S not in graph.keys() or D not in graph.keys():
-		return False
-
-def breathFirstSearch(graph,S,D):
-	Q = [S]
-	if S not in graph.keys() or D not in graph.keys():
-		return False
-	while len(Q) != 0:
-		cur = Q.pop()
-		neighbor = graph[cur]
-		if D in neighbor:
-			return True
+def solve(n):
+	
+	adict ={}
+	for card in n:
+		if card[0] not in adict.keys():
+			adict[card[0]] = 1
 		else:
-			for n in neighbor:
-				Q.append(n)
-	return False
+			adict[card[0]] += 1
+	maxx = 0
+	for card in adict.keys():
+		if maxx < adict[card]:
+			maxx = adict[card]
+	return maxx
 
 
-def solve(graph):
-	'''
-	write your code here
-	'''
-	return breathFirstSearch(graph,"A","C")
+	return n
 
 if __name__ == '__main__':
 	O = Output()
 	E = Error()
 	I = Input()
-
-	query = I.readInt()
-	for i in range(query):
-		nodeNum = I.readInt()
-		nodeList = I.readToList()
-		graph = {}
-		for node in nodeList:
-			graph[node] = I.readToList()
-		O.writeln(solve(graph))
+	O.writeln(solve(I.readToList()))

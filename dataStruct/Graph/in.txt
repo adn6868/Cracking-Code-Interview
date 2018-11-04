@@ -1,9 +1,18 @@
-1
-5
-A B C D E F
-A B E
-B D F
-C F
-D B F
-E F
+2
+9
+A B C D E F G H I
+B
+D
+E
+C
 F
+G
+A
+G
+F
+3
+3
+A B C
+B
+A
+C
