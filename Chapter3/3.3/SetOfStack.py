@@ -32,10 +32,17 @@ class SetOfStack:
 		if self.setOfStack[-1].empty():
 			self.setOfStack.pop()
 		return self.setOfStack[-1].pop()
+	def popAt(self,stackNum):
+		if stackNum > len(self.setOfStack):
+			print("Bro it's out of bound")
+			return
+		return self.setOfStack[stackNum].pop()
+
 	def toString(self):
 		ans = '['
 		for i in range(len(self.setOfStack)):
 			ans += self.setOfStack[i].toString()
 		return ans + ']'
+
 
 

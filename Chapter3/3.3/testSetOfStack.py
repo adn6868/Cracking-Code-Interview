@@ -34,12 +34,15 @@ def testSetofStack2():
 	s.add(11)
 	print("add 11")
 	print(s.toString())
-	
+
 	print(s.pop())
 	print(s.toString())
 	print(s.pop())
 	print(s.toString())
-	
+
+	print("pop stack at 1st position")
+	print(s.popAt(0))
+	print(s.toString())
 
 def testStack():
 	s = Stack()
