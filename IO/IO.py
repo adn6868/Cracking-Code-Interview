@@ -32,6 +32,14 @@ class Error:
 	def writeln(self, aline):
 		self.e.write(str(aline) + '\n')
 
+class Solver:
+	def __init__(self):
+		self.O = Output()
+		self.E = Error()
+		self.I = Input()
+	def solve(self,n):
+		return n		
+
 def solve(n):
 	'''
 	write your code here
