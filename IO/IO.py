@@ -12,11 +12,11 @@ class Input:
 	def __init__( self ):
 		self.i = sys.stdin
 	def readline( self ):
-		return self.i.readline()
+		return self.i.readline().strip('\n')
 	def readInt( self ):
-		return int ( self.i.readline())
+		return int ( self.i.readline().strip('\n'))
 	def readFlt( self ):
-		return float(self.i.readline())
+		return float(self.i.readline().strip('\n'))
 	def readToList(self,splitter = " "):
 		return list(self.i.readline().strip('\n').split(splitter))
 	def readToIntList(self,splitter = " "):
@@ -31,6 +31,14 @@ class Error:
 		self.e.write(str(aline))
 	def writeln(self, aline):
 		self.e.write(str(aline) + '\n')
+
+class Solver:
+	def __init__(self):
+		self.O = Output()
+		self.E = Error()
+		self.I = Input()
+	def solve(self,n):
+		return n		
 
 def solve(n):
 	'''
